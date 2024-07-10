@@ -10,9 +10,10 @@ import {
 const router = express.Router();
 
 router.route("/subscribe").get(isAuthenticated, buySubscription);
-router.route("/paymentverification").post(isAuthenticated, paymentVerification);
+router
+  .route("/paymentverification")
+  .post(regenerateAccessToken, isAuthenticated, paymentVerification);
 router.route("/razorpaykey").get(getRazorPayKey);
 router.route("/subscribe/cancel").delete(isAuthenticated, cancelSubscription);
-
 
 export default router;

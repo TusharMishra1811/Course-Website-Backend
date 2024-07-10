@@ -3,7 +3,6 @@ import { config } from "dotenv";
 import ErrorMiddleware from "./middlewares/Error.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import session from "express-session";
 
 config({
   path: "./config/config.env",
@@ -25,18 +24,7 @@ app.use(
   })
 );
 
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || "your_secret_key",
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      secure: process.env.NODE_ENV === "PRODUCTION",
-      httpOnly: true,
-      sameSite: "None",
-    },
-  })
-);
+
 
 import course from "./routes/course.routes.js";
 import user from "./routes/user.routes.js";
