@@ -24,8 +24,6 @@ app.use(
   })
 );
 
-
-
 import course from "./routes/course.routes.js";
 import user from "./routes/user.routes.js";
 import payment from "./routes/payment.routes.js";

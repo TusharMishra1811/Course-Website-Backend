@@ -73,7 +73,7 @@ export const logout = catchAsyncError(async (req, res, next) => {
       expires: new Date(Date.now()),
       httpOnly: true,
       secure: true,
-      sameSite: "none",
+      sameSite: "lax",
     })
     .json({
       success: true,
@@ -310,7 +310,7 @@ export const deleteMyProfile = catchAsyncError(async (req, res, next) => {
       expires: new Date(Date.now()),
       httpOnly: true,
       secure: true,
-      sameSite: "none",
+      sameSite: "lax",
     })
     .json({
       success: true,

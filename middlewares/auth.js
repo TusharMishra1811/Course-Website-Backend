@@ -36,17 +36,17 @@ export const authorizeSubscribers = (req, res, next) => {
   next();
 };
 
-export const regenerateAccessToken = catchAsyncError(async (req, res, next) => {
-  const user = await User.findById(req.user._id);
+// export const regenerateAccessToken = catchAsyncError(async (req, res, next) => {
+//   const user = await User.findById(req.user._id);
 
-  const newToken = user.getJWTToken();
+//   const newToken = user.getJWTToken();
 
-  const options = {
-    expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
-    httpOnly: true,
-    secure: true,
-    sameSite: "none",
-  };
-  res.cookie("token", newToken, options);
-  next();
-});
+//   const options = {
+//     expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
+//     httpOnly: true,
+//     secure: true,
+//     sameSite: "none",
+//   };
+//   res.cookie("token", newToken, options);
+//   next();
+// });
